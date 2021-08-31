@@ -2,23 +2,11 @@ const url = "https://kea-alt-del.dk/t7/api/products/2801";
 
 //fetch the data
 fetch(url)
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (data) {
-    handleProductList(data);
-  });
-
-function handleProductList(data) {
-  data.forEach(showProduct);
-}
+  .then((res) => res.json())
+  .then((data) => showProduct(data));
 
 function showProduct(product) {
   console.log(product);
-
-  //grab the template
-
-  //clone it
   document.querySelector(".breadcrumbs .brand").textContent = product.brandname;
   document.querySelector(".breadcrumbs .productname").textContent =
     product.productdisplayname;
@@ -29,63 +17,3 @@ function showProduct(product) {
     "img.productimage"
   ).alt = `https://kea-alt-del.dk/t7/images/webp/1000/${product.id}.webp`;
 }
-
-/*
-fetch(url)
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (data) {
-    handleProductList(data);
-  });
-
-function handleProductList(data) {
-  data.forEach(showProduct);
-}
-
-function showProduct(product) {
-  console.log(product);
-  //grab the template
-  const template = document.querySelector("#smallProductTemplate").content;
-
-  //clone it
-  const copy = template.cloneNode(true);
-
-  //change content
-  copy.querySelector(
-    ".subtle"
-  ).textContent = `${product.articletype} | ${product.brandname}`;
-
-  copy.querySelector("h3").textContent = product.productdisplayname;
-
-  if (product.soldout) {
-    copy.querySelector("article").classList.add("soldOut");
-  }
-
-  if (product.discount) {
-    copy.querySelector("article").classList.add("onSale");
-    copy.querySelector(".discounted p").textContent =
-      "Now DKK " +
-      Math.round(product.price - (product.price * product.discount) / 100) +
-      ",-";
-    copy.querySelector(".procents").textContent = "-" + product.discount + "%";
-    copy.querySelector(".price").textContent =
-      "Prev. DKK " + product.price + ",-";
-  } else {
-    copy.querySelector(".price").textContent = "DKK " + product.price + ",-";
-  }
-
-  copy.querySelector(
-    "img.productImage"
-  ).src = `https://kea-alt-del.dk/t7/images/webp/1000/${product.id}.webp`;
-  copy.querySelector("img.productImage").alt = product.productdisplayname;
-
-  //grab parent
-  const parent = document.querySelector("main");
-
-  //append
-  parent.appendChild(copy);
-}
-
-
-*/
