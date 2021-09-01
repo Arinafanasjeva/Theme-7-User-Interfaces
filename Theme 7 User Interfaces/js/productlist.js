@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const brandname = urlParams.get("brandname");
-console.log;
-
+console.log(brandname);
+document.querySelector("h2").textContent = brandname;
 const url = "https://kea-alt-del.dk/t7/api/products?brandname=" + brandname;
 
 fetch(url)
@@ -17,7 +17,6 @@ function handleProductList(data) {
 }
 
 function showProduct(product) {
-  console.log(product);
   //grab the template
   const template = document.querySelector("#smallProductTemplate").content;
 
