@@ -1,30 +1,25 @@
-const url = "https://kea-alt-del.dk/t7/api/products/";
+fetch("https://kea-alt-del.dk/t7/api/brands")
+  .then((res) => res.json())
+  .then(gotData);
 
-fetch(url)
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (data) {
-    handleProductList(data);
-  });
-
-function handleProductList(data) {
-  data.forEach(showProduct);
+function gotData(data) {
+  data.forEach(showBrand);
 }
 
-function showProduct(product) {
-  console.log(product);
+function showBrand(brand) {
   //grab the template
-  const template = document.querySelector("#smallProductTemplate").content;
+  const template = document.querySelector("template").content;
 
   //clone it
   const copy = template.cloneNode(true);
 
   //change content
+  copy.querySelector("a").textContent = brand.brandname;
 
   //grab parent
-  const parent = document.querySelector("main");
+  const topParent = document.querySelector("#letter_a");
+  const elemParent = topParent.querySelector("ol");
 
   //append
-  parent.appendChild(copy);
+  elemParent.appendChild(copy);
 }
