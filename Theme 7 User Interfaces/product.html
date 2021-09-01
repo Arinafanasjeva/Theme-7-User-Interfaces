@@ -4,79 +4,46 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products By Brand</title>
+    <title>Some Product</title>
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
 </head>
 
-<body class="productlist">
+<body class="product">
     <header class="mainNav">
-        <h1>Fashion<span>R</span>Us</h1>
+        <h1>MyFashion</h1>
         <nav>
+            <a href="#">Women</a>
+            <a href="#">Men</a>
             <a href="#">Categories</a>
             <a href="category.html">Brands</a>
-            <a href="#">Seasons</a>
         </nav>
     </header>
     <main>
-        <h2>Nike</h2>
-        <article class="smallProduct">
-            <img src="https://kea-alt-del.dk/t7/images/webp/640/1163.webp"
-                alt="Sahara Team India Fanwear Round Neck Jersey" />
-            <h3>Sahara Team India Fanwear Round Neck Jersey</h3>
-            <p class="subtle">Tshirts | Nike</p>
-            <p class="price"><span>Prev.</span> DKK 1595,-</p>
-            <div class="discounted">
-                <p>Now DKK 1560,-</p>
-                <p>-34%</p>
-            </div>
-            <a href="product.html">Read More</a>
-        </article>
-        <article class="smallProduct onSale">
-            <img src="https://kea-alt-del.dk/t7/images/webp/640/1164.webp" alt="Blue T20" />
-            <h3>Blue T20 Indian Cricket Jersey</h3>
-            <p class="subtle">Tshirts | Nike</p>
-            <p class="price"><span>Prev.</span> DKK 1595,-</p>
-            <div class="discounted">
-                <p>Now DKK 1560,-</p>
-                <p>-34%</p>
-            </div>
-            <a href="product.html">Read More</a>
-        </article>
-        <article class="smallProduct soldOut">
-            <img src="https://kea-alt-del.dk/t7/images/webp/640/1165.webp" alt="Blue T20 Indian Cricket Jersey" />
-            <h3>Blue T20 Indian Cricket Jersey</h3>
-            <p class="subtle">Tshirts | Nike</p>
-            <p class="price"><span>Prev.</span> DKK 1595,-</p>
-            <div class="discounted">
-                <p>Now DKK 1560,-</p>
-                <p>-34%</p>
-            </div>
-            <a href="product.html">Read More</a>
-        </article>
-        <article class="smallProduct soldOut onSale">
-            <img src="https://kea-alt-del.dk/t7/images/webp/640/1525.webp" alt="Blue T20 Indian" />
-            <h3>Blue T20 Indian Cricket Jersey</h3>
-            <p class="subtle">Tshirts | Nike</p>
-            <p class="price"><span>Prev.</span> DKK 1595,-</p>
-            <div class="discounted">
-                <p>Now DKK 1560,-</p>
-                <p>-34%</p>
-            </div>
-            <a href="product.html">Read More</a>
-        </article>
-        <article class="smallProduct">
-            <img src="https://kea-alt-del.dk/t7/images/webp/640/1526.webp" alt="Blue T20 Indian Cricket Jersey" />
-            <h3>Blue T20 Indian Cricket Jersey</h3>
-            <p class="subtle">Tshirts | Nike</p>
-            <p class="price"><span>Prev.</span> DKK 1595,-</p>
-            <div class="discounted">
-                <p>Now DKK 1560,-</p>
-                <p>-34%</p>
-            </div>
-            <a href="product.html">Read More</a>
-        </article>
+        <ol class="breadcrumbs">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="category.html">Brands</a></li>
+            <li class="brand"><a href="productlist.html">Nike</a></li>
+            <li class="productname">Sahara Team India Fanwear Round Neck Jersey</li>
+        </ol>
+        <img class="productimage" src="" alt="Sahara Team India Fanwear Round Neck Jersey" />
+        <section class="purchaseBox">
+            <h3 class="productName">Sahara Team India Fanwear Round Neck Jersey</h3>
+            <p class="subtle">Nike | Tshirts</p>
+        </section>
+        <section class="info">
+            <h2>Product Information</h2>
+            <h4 class="soldOut"><span></span></h4>
+            <h4 class="gender">Gender: <span></span></h4>
+            <h4 class="price">Price: DKK <span></span>,-</h4>
+            <h4 class="discount"><span></span></h4>
+            <h4 class="newPrice"><span></span></h4>
+            <h4 class="category">Category: <span></span></h4>
+            <h4 class="subcategory">Subcategory: <span></span></h4>
+            <h4 class="productionyear">Production year: <span></span></h4>
+        </section>
     </main>
+    <script src="js/product.js"></script>
 </body>
 
 </html>
