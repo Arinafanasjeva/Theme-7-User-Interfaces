@@ -3,20 +3,45 @@ html {
 }
 
 .mainNav h1 {
-  display: inline-block;
-}
-.mainNav > * {
-  margin: 0;
-}
-@media screen and (min-width: 700px) {
-  .mainNav {
-    display: flex;
-    align-items: center;
-  }
+  margin-right: auto;
 }
 
-.mainNav h1 {
-  margin-right: auto;
+/*Index*/
+.indexLink {
+  text-decoration: none;
+}
+.indexType {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.indexDiv {
+  text-align: center;
+  width: 28rem;
+  padding: 0;
+  animation: typing 5s steps(45), blink 0.5s step-end infinite alternate;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@media screen and (max-width: 500px) {
+  .indexLink {
+    font-size: 2.8em;
+  }
+  .indexDiv {
+    width: 17rem;
+  }
 }
 
 /*Category*/
@@ -32,10 +57,9 @@ html {
   list-style-type: none;
 }
 .brandList li {
-  border-bottom: 1px solid black;
+  border-left: 1px solid #ddbb82;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 1rem;
 }
 .brandList a {
@@ -48,15 +72,31 @@ html {
   transition: transform 0.4s;
   opacity: 0.8;
 }
-
-@media screen and (min-width: 800px) {
-  .brandList ol {
-    column-count: 2;
-  }
-}
 .letterLinks a,
 .brandList h2 {
   text-transform: uppercase;
+  text-decoration: none;
+}
+@media screen and (min-width: 800px) {
+  .brandList ol {
+    column-count: 3;
+  }
+}
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 2em;
+  }
+  .letterLinks ol {
+    font-size: 1em;
+  }
+  .letterGroup h2 {
+    font-size: 1.7em;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 799px) {
+  .brandList ol {
+    column-count: 2;
+  }
 }
 
 /*ProductList*/
@@ -65,31 +105,40 @@ html {
   grid-template-columns: repeat(auto-fill, minmax(150px, 300px));
   gap: 2rem;
 }
+.productlist article {
+  display: flex;
+  flex-direction: column;
+}
+.smallProduct {
+  background-color: #ddbb82;
+  border: 1px solid black;
+  padding: 5px 5px 0 5px;
+}
+.smallProduct a {
+  font-family: "Homemade Apple", cursive;
+  text-decoration: none;
+}
 .productlist main h2 {
   grid-column: 1/-1;
 }
 .productlist article h3 {
   font-size: 1rem;
-  flex-grow: 3;
+  letter-spacing: 1px;
 }
 .productlist article > * {
-  margin: 0;
+  margin: 1px;
   font-size: 0.9rem;
 }
 
-.productlist article {
-  display: flex;
-  flex-direction: column;
-}
 .productlist article.soldOut img {
   opacity: 0.5;
 }
 .productlist article.soldOut::before {
   content: "Sold Out";
   position: absolute;
-  background: var(--color);
-  color: var(--background-color);
-  padding: 1rem;
+  background: beige;
+  padding: 10px;
+  margin: 10px;
 }
 .productlist article .discounted,
 .productlist article .price span {
@@ -99,21 +148,11 @@ html {
   display: flex;
   justify-content: space-between;
 }
-.discounted > p {
-  margin-bottom: 0;
-}
-.productlist article.onSale .price span {
-  display: initial;
-}
-.productlist article button {
-  margin-top: auto;
-}
-.productlist article {
-  margin-bottom: 1rem;
-}
 .discounted p:last-child {
-  background: var(--off-color);
+  background: beige;
+  color: black;
   padding: 0.2rem;
+  margin-right: 10px;
 }
 
 /*Product*/
@@ -127,52 +166,53 @@ html {
   height: 10px;
   margin: 0 10px;
   content: "";
-  transition: all 0.3s;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 14"><path fill="none" stroke="white" d="M.8 12.87l7.5-6-7.5-6"></path></svg>');
-  background-repeat: no-repeat;
-  /* url('data:image/svg+xml;utf8,<svg class="svg-arrowRight" viewBox="0 0 9 14"><path fill="none" stroke="#979797" d="M.8 12.87l7.5-6-7.5-6"></path></svg>'); */
 }
 .breadcrumbs li:last-child::after {
   background: none;
 }
-.purchaseBox {
-  background: #d8d8d8;
-  color: var(--background-color);
-  padding: 1rem;
-}
-.info {
-  padding: 1rem;
-}
+
 .product select {
   min-width: 100px;
 }
 .product main {
   display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-.product main .breadcrumbs,
+.breadcrumbs,
 .product main img {
-  grid-column: 1/-1;
+  grid-column: 1;
 }
-.purchaseBox form label {
-  gap: 1rem;
+.info {
+  padding: 1rem;
+  grid-column: 2;
+  background-color: #ddbb82;
 }
-.purchaseBox button {
-  display: block;
-  margin-top: 1rem;
-  width: 100%;
+img {
+  width: auto;
+  height: auto;
 }
-dt {
-  font-weight: 700;
-}
-@media screen and (min-width: 1000px) {
+
+@media screen and (max-width: 500px) {
+  .breadcrumbs li {
+    display: flex;
+    font-size: 0.8em;
+  }
   .product main {
-    grid-template-columns: 1fr 310px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 500px));
   }
-  .info {
-    order: 0;
+  .info h4 {
+    font-size: 0.6em;
   }
-  .purchaseBox {
-    order: 2;
-    transform: translate(-50px, -100px);
+  .info h2,
+  h3 {
+    font-size: 0.8em;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 799px) {
+  .breadcrumbs li {
+    display: flex;
+  }
+  .product main {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 500px));
   }
 }
