@@ -13,7 +13,7 @@ function handleLetter(letter) {
 
 function createNavLink(letter) {
   //create nav link
-  const temp = document.querySelector("#linkTemplate").content;
+  const temp = document.querySelector(".linkTemplate").content;
 
   const copy = temp.cloneNode(true);
 
@@ -45,7 +45,7 @@ function gotData(data) {
 
 function showBrand(brand) {
   //grab the template
-  const template = document.querySelector("#linkTemplate").content;
+  const template = document.querySelector(".linkTemplate").content;
 
   //clone it
   const copy = template.cloneNode(true);
